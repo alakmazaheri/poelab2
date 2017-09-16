@@ -1,0 +1,6 @@
+x = distance;
+y = arduino_values;
+
+f(x) = a*exp(-.01818x), a = 657.7
+
+f(x) = a*exp(-.04263x)+b*exp(-.0071584x), a = 744.4, b = 216
