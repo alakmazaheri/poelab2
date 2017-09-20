@@ -12,15 +12,15 @@ void setup() {
 }
 
 void loop() {
- for (i = 0; i < 3; i++){
+ for (i = 0; i < 4; i++){
   for (pos = 60; pos <= 120; pos += 1) { // goes from 0 degrees to 180 degrees
     servo1.write(pos);
     delay(15);
     sensor_value = analogRead(analogInPin);
-    if(pos % 5 == 0){
+    if(pos % 1 == 0){
       Serial.println(pos);
       Serial.println(sensor_value);
-      Serial.println("----------");
+      //Serial.println("----------");
     }
     delay(50);
   }
@@ -28,14 +28,15 @@ void loop() {
     servo1.write(pos);
     delay(15);
     sensor_value = analogRead(analogInPin);
-    if(pos % 5 == 0){
+    if(pos % 1 == 0){
       Serial.println(pos);
       Serial.println(sensor_value);
-      Serial.println("----------");
+      //Serial.println("----------");
     }
     delay(50);
   }
  }
+ Serial.end();
  while(true)
  {}
 
