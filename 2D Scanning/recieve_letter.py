@@ -9,25 +9,26 @@ positions = []
 sensor_values = []
 
 i = 0
+check = 0
 
-while i < 420:
+while check != 42.0:
     servoPos = float(cxn.readline().strip())
+    check = servoPos
+    if check == 42.0:
+        break
     sensorVal = float(cxn.readline().strip())
 
     positions.append(servoPos)
     sensor_values.append(sensorVal)
 
-    i += 1
+#averaging function here
 
 distances = []
 
-for value in sensor_values:
-    #eqa = Eq(744.4.*exp(-.04263*a) + 216.*exp(-.0071584*a), value)
-    a = Symbol('a')
-    d = nsolve(744.4*sympy.exp(-.04263*a) + 216*sympy.exp(-.0071584*a) == value, a)
+for x in sensor_values:
+    d = ((-.004216*(x**2))+(-3.837*x) + (1.388e4))/(x+16.53)
     distances.append(d)
 
-print(distances)
 plt.plot(positions,distances, label = 'letter')
 plt.legend()
 plt.show()
