@@ -17,7 +17,7 @@ for x in voltages:
     calibration.append(d)
 
 plt.plot(voltages, distance, 'ro', label = 'calibration points')
-plt.plot(new_voltages, new_distances, 'b*', label = 'test points')
+#plt.plot(new_voltages, new_distances, 'b*', label = 'test points')
 plt.plot(voltages, calibration, label = 'calibration curve')
 plt.legend()
 plt.show()
