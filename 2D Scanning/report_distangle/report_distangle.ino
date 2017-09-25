@@ -49,7 +49,7 @@ void loop() {
 //    delay(50);
 //  }
  }
- Serial.println(42);
+ Serial.println(9999);
  while(true)
  {}
 

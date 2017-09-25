@@ -11,13 +11,22 @@ new_distances = [24, 37, 43, 53, 61, 71, 83, 97, 108, 121];
 new_voltages = [456, 316, 272, 225, 197.5, 169.75, 140, 113, 98, 91];
 
 calibration = []
+expected = []
 
 for x in voltages:
     d = ((-.004216*(x**2))+(-3.837*x) + (1.388e4))/(x+16.53)
     calibration.append(d)
 
+for d in new_voltages:
+    y = ((-.004216*(x**2))+(-3.837*x) + (1.388e4))/(x+16.53)
+    expected.append(y)
+
 plt.plot(voltages, distance, 'ro', label = 'calibration points')
-#plt.plot(new_voltages, new_distances, 'b*', label = 'test points')
+#plt.plot(new_voltages, new_distances, 'ro', label = 'test points')
 plt.plot(voltages, calibration, label = 'calibration curve')
 plt.legend()
+
+plt.xlabel('Sensor Readings')
+plt.ylabel('Actual Distance')
+
 plt.show()

@@ -14,12 +14,15 @@ void setup() {
   Serial.begin(9600);
   servo1.attach(9); 
   servo2.attach(10);
+
+  servo1.write(60);
+  servo2.write(55);
 }
 
 void loop() {
- for (i = 50; i < 80; i+=3){               //tilts from 90 to 120 degrees
+ for (i = 55; i < 95; i+=1){               //tilts from 90 to 120 degrees
   
-  for (pos = 60; pos <= 100; pos += 1) {    // pans from 60 to 100 degrees per tilt degree
+  for (pos = 60; pos <= 110; pos += 1) {    // pans from 60 to 100 degrees per tilt degree
     servo1.write(pos);
     delay(30); sensor_value1 = analogRead(analogInPin);
     delay(50); sensor_value2 = analogRead(analogInPin);
@@ -29,12 +32,12 @@ void loop() {
     Serial.println(i);    
     Serial.println(pos);
     Serial.println(sensor_value);
-    delay(50);
+    delay(30);
   }
 
   Serial.println(667);
-  servo2.write(i); delay(30);
-      
+  servo2.write(i); delay(50);
+
  }
 
  

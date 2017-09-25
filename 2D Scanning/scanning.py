@@ -14,10 +14,10 @@ def recieve_letter():
     i = 0
     check = 0
 
-    while check != 42.0:
+    while check != 9999.0:
         servoPos = float(cxn.readline().strip())
         check = servoPos
-        if check == 42.0:
+        if check == 9999.0:
             break
         sensorVal = float(cxn.readline().strip())
 

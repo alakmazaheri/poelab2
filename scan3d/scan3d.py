@@ -43,48 +43,41 @@ def recieve_letter():
 
         sensor_values.append(temp_values)
         temp_values = []
-        
+
     return sensor_values, angles
 
 def get_distance(sensor_values, angles):
     distances = []
     dist = []
+    i = 0
+    j = 0
 
     for a in sensor_values:
         for x in a:
             d = ((-.004216*(x**2))+(-3.837*x) + (1.388e4))/(x+16.53)
             dist.append(d)
-        distances.append(dist)
+        distances.insert(0, dist)
+        dist = [];
 
     return distances
 
 def visualize(distances, angles):
-    #array = np.zeros(1, max(positions) - min(positions)), dtype= np.uint8)
-    #distances
+    #2D scanning
+    #Shows raw distance graph
+    #plt.plot(angles,distances, label = 'letter')
+    #plt.legend()
+    #plt.show()
 
-    #for x in distances:
-    #    for dist in x:
-    #        if dist > 150:
-    #            dist = 149
-
-
+    #Prepares arrays for imshow color mapping
     #for row in distances:
     #    r = np.array(row)
     #    r2 = np.vstack((r2,r))
 
-    #r2 = np.vstack((r, r));
-    #plt.imshow(r2, interpolation = 'nearest', cmap = 'gray_r')
-
+    #3D scanning
     dist = np.array(distances)
-
-    print(len(distances))
-    print(len(distances[0]))
     plt.imshow(dist, interpolation = 'nearest', cmap = 'gray_r')
+    plt.colorbar()
     plt.show()
-
-    #plt.plot(angles,distances, label = 'letter')
-    #plt.legend()
-    #plt.show()
 
 if __name__ == "__main__":
     sensor_vals, angles = recieve_letter()
